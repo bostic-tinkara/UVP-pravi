@@ -6,34 +6,47 @@
 # prestopno, in `False`, kadar ni.
 # =============================================================================
 def je_prestopno(leto):
-    if leto % 4 == 0 and leto%100 !=0:
-        return True
-    elif leto % 100 == 0 and leto % 400 != 0:
-        return False
-    elif leto %400==0:
-        return True
-    else:
-        return False
+    return leto % 4 == 0 and leto % 100 != 0 or leto % 400 == 0
+# def je_prestopno(leto):
+#     if leto % 4 == 0 and leto%100 !=0:
+#         return True
+#     elif leto % 100 == 0 and leto % 400 != 0:
+#         return False
+#     elif leto %400==0:
+#         return True
+#     else:
+#         return False
 # =====================================================================@000928=
 # 2. podnaloga
 # Sestavite funkcijo `stevilo_dni(mesec, leto)`, ki vrne število dni danega
 # meseca (podanega s številom med 1 in 12) v danem letu.
 # =============================================================================
-def stevilo_dni(mesec,leto):
-    if je_prestopno(leto) == True:
-        if mesec == 1 or mesec == 3 or mesec == 5 or mesec == 7 or mesec == 8 or mesec == 10 or mesec == 12:
-            return 31
-        elif mesec == 2:
+# def stevilo_dni(mesec,leto):
+#     if je_prestopno(leto) == True:
+#         if mesec == 1 or mesec == 3 or mesec == 5 or mesec == 7 or mesec == 8 or mesec == 10 or mesec == 12:
+#             return 31
+#         elif mesec == 2:
+#             return 29
+#         else:
+#             return 30
+#     else: 
+#         if mesec == 1 or mesec == 3 or mesec == 5 or mesec == 7 or mesec == 8 or mesec == 10 or mesec == 12:
+#             return 31
+#         elif mesec == 2:
+#             return 28
+#         else:
+#             return 30
+        
+def stevilo_dni(mesec, leto):
+    if mesec == 4 or mesec == 6 or mesec == 9 or mesec == 11:
+        return 30
+    elif mesec == 2:
+        if je_prestopno(leto):
             return 29
         else:
-            return 30
-    else: 
-        if mesec == 1 or mesec == 3 or mesec == 5 or mesec == 7 or mesec == 8 or mesec == 10 or mesec == 12:
-            return 31
-        elif mesec == 2:
             return 28
-        else:
-            return 30
+    else:
+        return 31
 # =====================================================================@000929=
 # 3. podnaloga
 # Sestavite funkcijo `je_veljaven_datum(dan, mesec, leto)`, ki vrne `True`
@@ -41,10 +54,12 @@ def stevilo_dni(mesec,leto):
 # (torej `mesec` mora biti število med 1 in 12, `dan` pa mora ustrezati dnevu
 # v tem mesecu).
 # =============================================================================
+# def je_veljaven_datum(dan, mesec, leto):
+#     if 0<mesec<13 and 0<dan<=stevilo_dni(mesec,leto):
+#         return True
+#     else: return False
 def je_veljaven_datum(dan, mesec, leto):
-    if 0<mesec<13 and 0<dan<=stevilo_dni(mesec,leto):
-        return True
-    else: return False
+    return 1 <= mesec <= 12 and 1 <= dan <= stevilo_dni(mesec, leto)
 
 
 

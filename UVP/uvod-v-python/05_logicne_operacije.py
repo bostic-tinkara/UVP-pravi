@@ -146,8 +146,12 @@ def negacija_nand(a):
     else:
         return True
 def disjunkcija_nand(a,b):
-
+    if a == b:
+        return negacija_nand(nand(a,b))
+    else: 
+        return True
 def konjunkcija_nand(a,b):
+    return negacija_nand(nand(a,b))
 
 
 

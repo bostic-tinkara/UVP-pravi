@@ -52,16 +52,16 @@ def obrat(n):
 def dodaj_kontrolno_stevko(sklic):
     s1 = sklic % 10
     s2 = sklic //10 %10
-    s3  = sklic // 1000 % 10
-    s4  = sklic // 10000 % 10
-    s5  = sklic // 100000 % 10
-    s6  = sklic // 1000000 % 10
-    s7  = sklic // 10000000 % 10
-    s8  = sklic // 100000000 % 10
-    s9  = sklic // 1000000000 % 10
-    s10  =sklic // 10000000000 % 10 
-    s11  = sklic // 100000000000 % 10
-    s12  = sklic // 1000000000000 % 10
+    s3  = sklic // 100 % 10
+    s4  = sklic // 1000 % 10
+    s5  = sklic // 10000 % 10
+    s6  = sklic // 100000 % 10
+    s7  = sklic // 1000000 % 10
+    s8  = sklic // 10000000 % 10
+    s9  = sklic // 100000000 % 10
+    s10  =sklic // 1000000000 % 10 
+    s11  = sklic // 10000000000 % 10
+    s12  = sklic // 100000000000 % 10
     s13 = 11 - ((2 * s1 + 3*s2+4*s3+5*s4+6*s5+7*s6+8*s7+9*s8+10*s9+11*s10+12*s11+13*s12)%11)
     if s13 < 10:
         return sklic * 10 + s13
